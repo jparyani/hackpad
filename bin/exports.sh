@@ -24,9 +24,9 @@
 ## Change the following lines to fit your development environment.
 
 # These lines assume you installed Scala via Homebrew.
-export SCALA_HOME="/usr/local/Cellar/scala/2.11.7"
+export SCALA_HOME="/usr"
 export SCALA="$SCALA_HOME/bin/scala"
-export SCALA_LIBRARY_JAR="$SCALA_HOME/libexec/lib/scala-library.jar"
+export SCALA_LIBRARY_JAR="/usr/share/java/scala-library.jar"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home"
 export JAVA="/usr/bin/java"
