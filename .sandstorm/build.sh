@@ -4,4 +4,4 @@
 set -euo pipefail
 
 cd /opt/app
-# bin/build.sh
+bin/build.sh
