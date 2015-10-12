@@ -21,3 +21,6 @@ innodb_log_file_size = 1048576
 # Set the main data file to grow by 1MB at a time, rather than 8MB at a time.
 innodb_autoextend_increment = 1
 EOF
+
+test -e /opt/app/libjli.so || ln -s /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so /opt/app
+test -e /opt/app/bin/libjli.so || ln -s /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so /opt/app/bin
