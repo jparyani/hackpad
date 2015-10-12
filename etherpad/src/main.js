@@ -172,12 +172,19 @@ serverhandlers.requestHandler = function() {
     response.setStatusCode(503);
     return;
   }
+  log.custom("request", "req1");
   checkRequestIsWellFormed();
+  log.custom("request", "req2");
   request.profile = new Profile();
+  log.custom("request", "req3");
   checkHost();
+  log.custom("request", "req4");
   sessions.preRequestCookieCheck();
+  log.custom("request", "req5");
   response.setHeader("Content-Security-Policy", helpers.getCSPPolicy());
+  log.custom("request", "req6");
   handlePath();
+  log.custom("request", "req7");
 };
 
 // In theory, this should never get called.
@@ -329,9 +336,9 @@ function checkHost() {
   }
 
   // we require the domain to be a <superdomain>
-  if (pro_utils.getRequestSuperdomain()) {
-    return;
-  }
+  // if (pro_utils.getRequestSuperdomain()) {
+  //   return;
+  // }
 
   // redirect to main site
   response.redirect(appjet.config['etherpad.canonicalDomain']);

@@ -64,7 +64,7 @@ function getRequestSuperdomain() {
 }
 
 function getRequestIsSuperdomain() {
-  return domainEnabled(_stripComet(request.domain));
+  return true;
 }
 
 function isProDomainRequest() {

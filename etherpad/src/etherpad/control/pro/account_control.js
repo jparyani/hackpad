@@ -322,9 +322,17 @@ function _handleSignupRequest(email, password, fullName, cont) {
       renderJSON({success:false, html:html});
     } else {
       // Succesful signup
-      var error = "We've sent you a verification email.  Click on the link in that email to activate your account.";
-      renderJSON({success:false, error:error, html:
-        modalDialog("Welcome to hackpad!",error, true)});
+      // var error = "We've sent you a verification email.  Click on the link in that email to activate your account.";
+      // renderJSON({success:false, error:error, html:
+      //   modalDialog("Welcome to hackpad!",error, true)});
+      var uid = pro_accounts.upgradeSignupToAccount(email, fullName, pro_accounts.computePasswordHash(password));
+      // if we have a uid, go ahead and sign-in the user
+      u = pro_accounts.getAccountById(uid);
+      if (!u) { throw Error("Failed to create pro account"); }
+      pro_accounts.signInSession(u);
+      pro_accounts.updateCookieSignedInAcctsOnSignIn();
+      log.custom('accounts', 'Upgrading pad invite to account for: '+email);
+      renderJSON({success:true, cont:cont});
     }
   }
 }

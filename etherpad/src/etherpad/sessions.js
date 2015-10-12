@@ -236,7 +236,7 @@ function preRequestCookieCheck() {
         var p = request.host.split(':')[1];
         p = (p ? (":"+p) : "");
 
-        var contURL = request.scheme+"://"+pro_utils.getRequestSuperdomain()+p+"/?setCookie=1";
+        var contURL = "/?setCookie=1";
         log.warn("Embed cookie failure!");
         helpers.hideHeader();
 
@@ -261,8 +261,7 @@ function preRequestCookieCheck() {
       var contUrl = request.url;
       var p = request.host.split(':')[1];
       p = (p ? (":"+p) : "");
-      response.redirect(request.scheme+"://"+pro_utils.getRequestSuperdomain()+p+
-                        "/?setCookie=1&contUrl="+encodeURIComponent(contUrl));
+      response.redirect("/?setCookie=1&contUrl="+encodeURIComponent(contUrl));
     }
   }
 }

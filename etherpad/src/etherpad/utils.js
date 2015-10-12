@@ -842,9 +842,7 @@ function absoluteURL(path, queryDict, opt_subDomain) {
     queryComponents.push(encodeURIComponent(k)+"="+encodeURIComponent(v));
   });
 
-  return [(appjet.config.useHttpsUrls ? "https://" : "http://"),
-      subDomainStr,
-      appjet.config['etherpad.canonicalDomain'],
+  return [
       path,
       queryComponents.length ?  "?" : "",
       queryComponents.join("&")].join("") ;
